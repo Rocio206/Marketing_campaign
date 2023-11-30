@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Análisis de Clientes</title>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <span>Seleccionar un gráfico:</span>
+    <select id="selectorGrafico">
+        <option value="">--Seleccionar--</option>
+        <option value="graficoEducacion">Educación</option>
+        <option value="graficoVino">Vino</option>
+        <option value="graficoFidelidad">Fidelidad</option>
+    </select>
+
+    <div id="graficoEducacion" class="grafico"></div>
+    <div id="graficoVino" class="grafico"></div>
+    <div id="graficoFidelidad" class="grafico"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#selectorGrafico').change(function() {
+                $('.grafico').hide();
+                var graficoSeleccionado = $(this).val();
+                $('#' + graficoSeleccionado).show();
+
+                switch (graficoSeleccionado) {
+                    case 'graficoEducacion':
+                        graficoEducacion();
+                        break;
+                    case 'graficoVino':
+                        graficoVino();
+                        break;
+                    case 'graficoFidelidad':
+                        graficoFidelidad();
+                        break;
+                }
+            });
+        });
+    </script>
+<script src="js/graficos.js"></script>
+</body>
+</html>
